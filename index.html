@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costanzo Film & Video — James Costanzo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --off-black: #111111;
+    --charcoal: #1c1c1c;
+    --warm-gray: #2a2826;
+    --mid-gray: #6b6b6b;
+    --light-gray: #b8b5b0;
+    --cream: #f0ece6;
+    --warm-white: #faf8f5;
+    --accent: #c9a96e;
+    --accent-light: #e8d5b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+    transition: background 0.4s;
+  }
+  nav.scrolled { background: rgba(10,10,10,0.97); }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { min-height: 100vh; }
+
+  /* ── HOME ── */
+  #home {
+    position: relative;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    min-height: 100vh;
+  }
+
+  .home-left {
+    position: relative;
+    overflow: hidden;
+  }
+  .home-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(0.72) contrast(1.05);
+    transition: transform 8s ease;
+  }
+  .home-left:hover img { transform: scale(1.03); }
+  .home-left::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--black) 100%);
+  }
+
+  .home-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 4rem 3rem;
+    background: var(--black);
+  }
+
+  .home-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .home-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--warm-white);
+    margin-bottom: 2rem;
+  }
+  .home-title em {
+    display: block;
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .home-bio {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--light-gray);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+  }
+  .home-bio strong {
+    color: var(--cream);
+    font-weight: 400;
+  }
+
+  .home-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  .home-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--mid-gray);
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    transition: all 0.3s;
+    margin-right: 1rem;
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    color: var(--black);
+  }
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--light-gray);
+    color: var(--cream);
+  }
+
+  /* ── SECTION SHELL ── */
+  .page-section {
+    min-height: 100vh;
+    background: var(--off-black);
+    padding: 7rem 3rem 5rem;
+    display: none;
+  }
+  .page-section.active { display: block; }
+
+  .section-header {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding-bottom: 2.5rem;
+  }
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 1.4rem;
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--accent-light); }
+  .section-intro {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--light-gray);
+    max-width: 680px;
+  }
+
+  .content-max { max-width: 1100px; margin: 0 auto; }
+
+  /* ── WEDDING PHOTO GRID ── */
+  .wed-photo-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 4px;
+  }
+  .wed-photo-item {
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    position: relative;
+    background: var(--charcoal);
+  }
+  .wed-photo-item--wide {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+  }
+  .wed-photo-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .wed-photo-item:hover img { transform: scale(1.03); }
+
+  /* ── WEDDINGS ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+    margin-bottom: 4rem;
+  }
+  .pricing-card {
+    background: var(--off-black);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .pricing-card:hover { background: var(--charcoal); }
+  .pricing-card.featured {
+    background: var(--warm-gray);
+    border-top: 2px solid var(--accent);
+  }
+  .pricing-badge {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .pricing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--warm-white);
+    margin-bottom: 0.5rem;
+  }
+  .pricing-price {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--accent);
+    margin: 1rem 0;
+  }
+  .pricing-price sup {
+    font-size: 1.1rem;
+    vertical-align: super;
+    margin-right: 2px;
+    font-weight: 300;
+  }
+  .pricing-price sub {
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    font-weight: 300;
+  }
+  .pricing-description {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+  }
+  .pricing-includes {
+    list-style: none;
+    font-size: 0.82rem;
+    color: var(--mid-gray);
+    line-height: 2;
+  }
+  .pricing-includes li::before {
+    content: '— ';
+    color: var(--accent);
+  }
+
+  .addon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.87rem;
+  }
+  .addon-row:last-child { border-bottom: none; }
+  .addon-name { color: var(--cream); }
+  .addon-price { color: var(--accent); font-weight: 400; }
+  .addon-desc { font-size: 0.78rem; color: var(--mid-gray); margin-top: 3px; }
+
+  /* ── SCIENCE ── */
+  .science-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto 5rem;
+    align-items: start;
+  }
+  .science-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 1.2rem;
+  }
+  .science-text p {
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: var(--light-gray);
+    margin-bottom: 1.2rem;
+  }
+  .science-text .term {
+    color: var(--accent-light);
+    font-style: italic;
+  }
+  .research-abstract {
+    background: var(--charcoal);
+    border-left: 2px solid var(--accent);
+    padding: 1.8rem 2rem;
+    margin-top: 2rem;
+  }
+  .research-abstract h4 {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .research-abstract p {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--mid-gray);
+  }
+  .science-image-placeholder {
+    background: var(--charcoal);
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(255,255,255,0.1);
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── NATURE ── */
+  .nature-intro-split {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    align-items: start;
+  }
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--cream);
+    border-left: 2px solid var(--accent);
+    padding-left: 2rem;
+    margin: 2rem 0;
+  }
+  .nature-aside {
+    padding-top: 1rem;
+  }
+  .nature-aside p {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--mid-gray);
+    margin-bottom: 1rem;
+  }
+
+  /* ── ASTRO ── */
+  .astro-hero-text {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .astro-hero-text p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--light-gray);
+    margin-bottom: 1rem;
+  }
+
+  /* ── GALLERY GRID ── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 4px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .gallery-placeholder {
+    aspect-ratio: 4/3;
+    background: var(--charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    border: 1px dashed rgba(255,255,255,0.06);
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .gallery-placeholder:hover { background: var(--warm-gray); }
+
+  /* ── PHOTO ADD HELPER ── */
+  .add-photo-note {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.06em;
+    border: 1px dashed rgba(255,255,255,0.08);
+    margin-top: 2rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── CONTACT BAR ── */
+  .contact-bar {
+    background: var(--charcoal);
+    padding: 4rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 5rem;
+  }
+  .contact-bar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 0.8rem;
+  }
+  .contact-bar p {
+    font-size: 0.88rem;
+    color: var(--mid-gray);
+    margin-bottom: 2rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 3rem;
+    background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+  footer a { color: var(--mid-gray); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ── SCIENCE HERO ── */
+  .sci-hero-wrap {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+  .sci-hero-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .sci-hero-img img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .sci-hero-img:hover img { transform: scale(1.03); }
+  .sci-hero-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    padding: 1.5rem 1.2rem 1rem;
+  }
+  .sci-hero-caption p {
+    font-size: 0.78rem;
+    color: var(--light-gray);
+    margin: 0.4rem 0 0;
+    line-height: 1.5;
+  }
+  .sci-img-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(0,0,0,0.5);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .sci-hero-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 1.2rem;
+  }
+  .sci-hero-text p {
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: var(--light-gray);
+    margin-bottom: 1.1rem;
+  }
+
+  /* ── SCIENCE PORTRAITS ── */
+  .sci-sub-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+  .sci-portraits { margin: 0 0 4rem; }
+  .sci-portrait-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 4px;
+  }
+  .sci-portrait-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--charcoal);
+  }
+  .sci-portrait-card--tall { aspect-ratio: 2/3; }
+  .sci-portrait-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.5s ease;
+  }
+  .sci-portrait-card:hover img { transform: scale(1.04); }
+  .sci-portrait-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%);
+    padding: 1.5rem 1rem 0.8rem;
+    font-size: 0.82rem;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .sci-portrait-label span { color: var(--mid-gray); font-size: 0.75rem; }
+
+  /* ── SCIENCE BIO ── */
+  .sci-bio-wrap {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+  .sci-bio-portrait {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    aspect-ratio: 4/5;
+  }
+  .sci-bio-portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .sci-bio-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 1.4rem;
+  }
+  .sci-bio-text p {
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: var(--light-gray);
+    margin-bottom: 1.1rem;
+  }
+  .sci-bio-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-top: 2rem;
+  }
+  .sci-bio-stat {
+    background: var(--off-black);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sci-bio-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .sci-bio-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+  }
+
+  /* ── SCIENCE VIDEO ── */
+  .sci-video-feature {
+    background: var(--charcoal);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .sci-video-meta {
+    padding: 1rem 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sci-video-meta p {
+    font-size: 0.82rem;
+    color: var(--mid-gray);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ── SCIENCE SLIDESHOW ── */
+  .sci-slideshow-wrap { margin: 0 0 1rem; }
+  .sci-slideshow {
+    position: relative;
+    background: var(--charcoal);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .sci-slide { display: none; }
+  .sci-slide.active { display: block; }
+  .sci-slide-img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    width: 100%;
+  }
+  .sci-slide-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .sci-slide:hover .sci-slide-img img { transform: scale(1.03); }
+  .sci-slide-caption {
+    padding: 0.9rem 1.4rem;
+    background: var(--charcoal);
+  }
+  .sci-slide-caption p {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--mid-gray);
+    margin: 0;
+  }
+  .sci-slide-btn {
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--light-gray);
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sci-slide-btn:hover { background: var(--accent); color: var(--black); border-color: var(--accent); }
+  .sci-slide-prev { left: 1rem; }
+  .sci-slide-next { right: 1rem; }
+  .sci-slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.5rem 0 0.8rem;
+    background: var(--charcoal);
+  }
+  .sci-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--mid-gray);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .sci-dot.active { background: var(--accent); }
+
+  /* ── NATURE HERO ── */
+  .nat-hero-wrap {
+    margin-bottom: 1rem;
+  }
+  .nat-hero-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    max-height: 75vh;
+  }
+  .nat-hero-img img {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+    object-position: 25% center;
+    display: block;
+    transition: transform 8s ease;
+  }
+  .nat-hero-wrap:hover .nat-hero-img img { transform: scale(1.04); }
+  .nat-hero-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: 2rem 2rem 1.2rem;
+  }
+  .nat-hero-caption p {
+    font-size: 0.82rem;
+    color: var(--light-gray);
+    margin: 0.5rem 0 0;
+    max-width: 500px;
+  }
+
+  /* ── NATURE SLIDESHOW ── */
+  .nat-slideshow {
+    position: relative;
+    background: var(--charcoal);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .nat-slide { display: none; }
+  .nat-slide.active { display: block; }
+  .nat-slide-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .nat-slide-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .nat-slide:hover .nat-slide-img img { transform: scale(1.03); }
+  .nat-slide-caption {
+    padding: 0.9rem 1.2rem;
+    background: var(--charcoal);
+  }
+  .nat-slide-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--light-gray);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .nat-slide-btn:hover { background: var(--accent); color: var(--black); border-color: var(--accent); }
+  .nat-slide-prev { left: 1rem; }
+  .nat-slide-next { right: 1rem; }
+  .nat-slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.6rem 0 0.9rem;
+    background: var(--charcoal);
+  }
+  .nat-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--mid-gray);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nat-dot-active { background: var(--accent); }
+
+  /* ── NATURE WILDLIFE GRID ── */
+  .nat-wildlife-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 4px;
+  }
+  .nat-gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .nat-gallery-item:hover img { transform: scale(1.04); }
+  .nat-gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+    padding: 1.2rem 0.8rem 0.6rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .nat-gallery-item:hover .nat-gallery-caption { opacity: 1; }
+  .nat-gallery-caption span {
+    font-size: 0.75rem;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── NATURE FIELD GRID ── */
+  .nat-field-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+  .nat-field-card {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+  }
+  .nat-field-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .nat-field-card:hover img { transform: scale(1.04); }
+  .nat-field-card--placeholder { background: var(--charcoal); }
+
+  /* ── GALLERY ITEM hover ── */
+  .gallery-item:hover img { transform: scale(1.04); }
+
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.9s ease forwards; }
+  .fade-up-2 { animation: fadeUp 0.9s 0.2s ease forwards; opacity: 0; }
+  .fade-up-3 { animation: fadeUp 0.9s 0.4s ease forwards; opacity: 0; }
+  .fade-up-4 { animation: fadeUp 0.9s 0.6s ease forwards; opacity: 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    #home { grid-template-columns: 1fr; min-height: auto; }
+    .home-left { height: 65vw; min-height: 300px; }
+    .home-left::after { background: linear-gradient(to top, var(--black) 0%, transparent 60%); }
+    .home-right { padding: 2.5rem 1.5rem; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .page-section { padding: 6rem 1.5rem 3rem; }
+    .science-split, .nature-intro-split { grid-template-columns: 1fr; }
+    .pricing-grid { gap: 1px; }
+  }
+</style>
+<script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#" onclick="showSection('home')">Costanzo <span>Film & Video</span></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showSection('weddings')">Weddings & Events</a></li>
+    <li><a href="#" onclick="showSection('science')">Science</a></li>
+    <li><a href="#" onclick="showSection('nature')">Nature</a></li>
+    <li><a href="#" onclick="showSection('astro')">Astrophotography</a></li>
+    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+    <li><a href="https://www.instagram.com/costanzo.film.and.video/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:5px;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div id="section-home">
+  <section id="home">
+    <div class="home-left">
+      <img src="images/home-01-portrait.jpg" alt="James Costanzo">
+    </div>
+    <div class="home-right">
+      <p class="home-eyebrow fade-up">Nashville, Tennessee</p>
+      <h1 class="home-title fade-up-2">
+        James<br>Costanzo
+        <em>Film & Video</em>
+      </h1>
+      <div class="home-divider fade-up-3"></div>
+      <p class="home-bio fade-up-3">
+        A camera found its way into my hands almost before I could walk — a Polaroid iZone, then a Nikon Coolpix, then lenses that could see further than the eye. <strong>Over two decades later, the obsession hasn't changed: only the equipment has.</strong>
+        <br><br>
+        From volunteering at events, to filming my own vlog, to studying cells under a fluorescence microscope as a PhD candidate — I believe every subject has a frame worth finding. Weddings deserve films that feel like memory. Nature deserves the patience it gives back. And science, in its hidden beauty, deserves to be seen.
+      </p>
+      <p class="home-tagline fade-up-4">"Every moment has a frame worth finding."</p>
+      <div class="fade-up-4">
+        <a href="#" class="btn-primary" onclick="showSection('weddings')">View Work</a>
+        <a href="#" class="btn-ghost" onclick="showSection('contact')">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     WEDDINGS & EVENTS
+══════════════════════════════════════ -->
+<section id="section-weddings" class="page-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Weddings &amp; Events</p>
+    <h2 class="section-title">Your story, <em>told in full</em></h2>
+    <p class="section-intro">
+      I approach every wedding the same way I approach every shot: with patience, intention, and a belief that the quiet moments matter as much as the choreographed ones. Weddings are where I want to be behind a video camera — capturing the full cinematic arc of your day. For events, graduations, and portraits, I bring that same eye as a photographer.
+    </p>
+  </div>
+  <div class="content-max">
+
+    <!-- ── VIDEOGRAPHY HERO ── -->
+    <div style="margin-bottom:4rem;">
+      <p class="sci-sub-label">Wedding Videography</p>
+      <div style="background:var(--charcoal);border-radius:2px;overflow:hidden;">
+        <div style="padding:56.25% 0 0 0;position:relative;background:var(--off-black);">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(201,169,110,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <p style="font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid-gray);margin:0;">Wedding highlight reel — Vimeo embed coming soon</p>
+          </div>
+        </div>
+        <div style="padding:0.9rem 1.4rem;background:var(--charcoal);">
+          <span class="sci-img-tag">Wedding Highlight Film</span>
+          <p style="font-size:0.82rem;color:var(--mid-gray);margin:0.4rem 0 0;line-height:1.7;">Full wedding weekend · Highlight reel · Vows film · Blooper reel</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ENGAGEMENT & PORTRAIT GALLERY ── -->
+    <div style="margin-bottom:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.06);">
+      <p class="sci-sub-label">Engagement &amp; Portrait Photography</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:640px;">A few frames from recent sessions — quiet moments, real laughter, and locations that mean something.</p>
+      <div class="wed-photo-grid">
+        <div class="wed-photo-item wed-photo-item--wide">
+          <img src="images/weddings-01-couple-dip-kiss.jpg" alt="Couple dip kiss — Vanderbilt campus" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+        </div>
+        <div class="wed-photo-item">
+          <img src="images/weddings-02-couple-portrait-bw.jpg" alt="Couple portrait — black and white columns" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+        </div>
+        <div class="wed-photo-item">
+          <img src="images/weddings-03-couple-lift-kiss.jpg" alt="Couple lift kiss — columns corridor" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        </div>
+        <div class="wed-photo-item wed-photo-item--wide">
+          <img src="images/weddings-04-group-camera-gear.jpg" alt="Wedding group photo with camera gear" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+        </div>
+      </div>
+    </div>
+
+        <!-- ─── PRIORITY 1: WEDDING VIDEOGRAPHY ─── -->
+    <div style="margin-bottom:4rem;">
+      <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Wedding Videography</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:2rem;max-width:680px;">Weddings are my primary focus as a filmmaker. You'll receive films you'll want to watch again and again — not just on anniversaries, but on ordinary evenings when you want to feel it all over again.</p>
+
+      <!-- Day Coverage -->
+      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Day Coverage</p>
+      <div class="pricing-grid" style="grid-template-columns:1fr 1fr;margin-bottom:2rem;">
+        <div class="pricing-card">
+          <span class="pricing-badge">Base rate</span>
+          <div class="pricing-name">Wedding Day Coverage</div>
+          <div class="pricing-price"><sup>$</sup>900</div>
+          <p class="pricing-description">Full wedding day coverage, up to 10 hours, single videographer. The foundation for all video packages — your complete event captured with cinematic care.</p>
+          <ul class="pricing-includes">
+            <li>Up to 10 hours of coverage</li>
+            <li>Professional audio capture</li>
+            <li>Color graded footage</li>
+            <li>Add any deliverable package below</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <span class="pricing-badge">Multi-day add-on</span>
+          <div class="pricing-name">Additional Days</div>
+          <div class="pricing-price"><sup>$</sup>75<sub>/hr</sub></div>
+          <p class="pricing-description">Coverage for rehearsal dinners, engagement shoots, or multi-day destination weddings. Billed at an hourly rate with a 2-hour minimum.</p>
+          <ul class="pricing-includes">
+            <li>Rehearsal dinners</li>
+            <li>Getting-ready mornings</li>
+            <li>Destination multi-day events</li>
+            <li>2-hour minimum</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Video Deliverable Packages -->
+      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Video Deliverable Packages — added to day coverage</p>
+      <div class="pricing-grid" style="margin-bottom:2rem;">
+        <div class="pricing-card">
+          <span class="pricing-badge">Essential</span>
+          <div class="pricing-name">Highlight</div>
+          <div class="pricing-price"><sup>+$</sup>500</div>
+          <p class="pricing-description">A 5-minute cinematic highlight reel set to music, plus a dedicated vows video — the most emotionally resonant deliverables and the ones you'll share most.</p>
+          <ul class="pricing-includes">
+            <li>5-min cinematic highlight reel</li>
+            <li>Ceremony vows video</li>
+            <li>Private digital delivery</li>
+          </ul>
+          <p style="font-size:0.85rem;color:var(--mid-gray);margin-top:1.5rem;">Total with day: <span style="color:var(--accent);">$1,400</span></p>
+        </div>
+        <div class="pricing-card featured">
+          <span class="pricing-badge">&#9733; Most popular</span>
+          <div class="pricing-name">Full Story</div>
+          <div class="pricing-price"><sup>+$</sup>1,200</div>
+          <p class="pricing-description">Highlight reel and vows video plus a full-length feature film of your wedding (20–45 minutes) — ceremony, speeches, reception, and every real moment in between.</p>
+          <ul class="pricing-includes">
+            <li>5-min highlight reel</li>
+            <li>Vows video</li>
+            <li>Full-length wedding film (20–45 min)</li>
+            <li>Private digital delivery</li>
+          </ul>
+          <p style="font-size:0.85rem;color:var(--mid-gray);margin-top:1.5rem;">Total with day: <span style="color:var(--accent);">$2,100</span></p>
+        </div>
+        <div class="pricing-card">
+          <span class="pricing-badge">Full Story +</span>
+          <div class="pricing-name">Full Story &amp; Blooper Reel</div>
+          <div class="pricing-price"><sup>+$</sup>1,400</div>
+          <p class="pricing-description">Everything in Full Story, plus a ~15-minute blooper reel capturing the laughter, candid chaos, and outtakes that make your wedding uniquely yours.</p>
+          <ul class="pricing-includes">
+            <li>5-min highlight reel</li>
+            <li>Vows video</li>
+            <li>Full-length wedding film (20–45 min)</li>
+            <li>~15-min blooper / outtakes reel</li>
+          </ul>
+          <p style="font-size:0.85rem;color:var(--mid-gray);margin-top:1.5rem;">Total with day: <span style="color:var(--accent);">$2,300</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── PRIORITY 2: EVENT & PORTRAIT PHOTOGRAPHY ─── -->
+    <div style="margin-bottom:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.06);">
+      <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Event &amp; Portrait Photography</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:2rem;max-width:680px;">For events, graduations, and portrait sessions, I bring the same compositional eye I apply to video — every frame is considered. All sessions include fully edited, high-resolution digital images delivered via private gallery.</p>
+
+      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Portrait &amp; Mini Sessions</p>
+      <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:2rem;">
+        <div class="pricing-card">
+          <span class="pricing-badge">Mini session</span>
+          <div class="pricing-name">30 Minutes</div>
+          <div class="pricing-price"><sup>$</sup>150</div>
+          <p class="pricing-description">Perfect for quick portraits, graduation cap-and-gown shots, or a simple headshot session. Focused, efficient, and still fully edited.</p>
+          <ul class="pricing-includes">
+            <li>30 minutes on location</li>
+            <li>25 fully edited photos</li>
+            <li>Private online gallery</li>
+            <li>1 outfit / 1 location</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <span class="pricing-badge">&#9733; Most popular</span>
+          <div class="pricing-name">1 Hour Session</div>
+          <div class="pricing-price"><sup>$</sup>250</div>
+          <p class="pricing-description">The sweet spot for graduations, portraits, and event coverage. Enough time to explore the location, try different looks, and get genuinely candid moments alongside the posed ones.</p>
+          <ul class="pricing-includes">
+            <li>1 hour on location</li>
+            <li>50 fully edited photos</li>
+            <li>Private online gallery</li>
+            <li>Up to 2 outfits / locations</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <span class="pricing-badge">Extended</span>
+          <div class="pricing-name">2 Hour Session</div>
+          <div class="pricing-price"><sup>$</sup>400</div>
+          <p class="pricing-description">Ideal for multi-location shoots, larger group portraits, or events that need full coverage from arrival through wrap. Great for graduation parties, family sessions, or corporate events.</p>
+          <ul class="pricing-includes">
+            <li>2 hours on location</li>
+            <li>90 fully edited photos</li>
+            <li>Private online gallery</li>
+            <li>Multiple outfits / locations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Engagement Sessions -->
+      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Engagement &amp; Couples Sessions</p>
+      <p style="font-size:0.83rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:640px;">Whether you just got engaged or simply want to capture where you are right now as a couple — these sessions are relaxed, unhurried, and focused entirely on the two of you. Choose photo, video, or both together at a discount.</p>
+      <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:2rem;">
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Photo only</span>
+          <div class="pricing-name">Engagement Photos</div>
+          <div class="pricing-price"><sup>$</sup>350</div>
+          <p class="pricing-description">45–60 minutes in a location that means something to you. Fully edited, delivered via private gallery — perfect for save-the-dates, social media, or just a beautiful record of this moment.</p>
+          <ul class="pricing-includes">
+            <li>45–60 minutes on location</li>
+            <li>50 fully edited photos</li>
+            <li>Private online gallery</li>
+            <li>1–2 outfit changes</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Video only</span>
+          <div class="pricing-name">Couples / Engagement Film</div>
+          <div class="pricing-price"><sup>$</sup>400</div>
+          <p class="pricing-description">A short cinematic film of the two of you — 3 to 5 minutes, set to music, capturing movement, laughter, and the quiet in-between moments that photos can't hold. Great as a standalone keepsake or paired with a wedding package.</p>
+          <ul class="pricing-includes">
+            <li>1–2 hours of filming</li>
+            <li>3–5 min edited couples film</li>
+            <li>Music &amp; color grade included</li>
+            <li>Private digital delivery</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="pricing-badge">&#9733; Best value</span>
+          <div class="pricing-name">Photo + Film Bundle</div>
+          <div class="pricing-price"><sup>$</sup>650</div>
+          <p class="pricing-description">Both the engagement photo session and the couples film together, saving $100 versus booking each separately. The most complete way to capture your engagement — stills you can print and a film you can watch.</p>
+          <ul class="pricing-includes">
+            <li>45–60 minutes on location</li>
+            <li>50 fully edited photos</li>
+            <li>3–5 min cinematic couples film</li>
+            <li>Music, color grade, private delivery</li>
+            <li>Save $100 vs. booking separately</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-badge">Wedding add-on</span>
+          <div class="pricing-name">Bundle with Wedding Package</div>
+          <div class="pricing-price"><sup>$</sup>550</div>
+          <p class="pricing-description">Book any engagement or couples session alongside a wedding video package and save an additional $100. A chance to get comfortable in front of the camera before your big day — it always shows in the final footage.</p>
+          <ul class="pricing-includes">
+            <li>Choice of photo, film, or both</li>
+            <li>Extra $100 off vs. standalone bundle</li>
+            <li>Must be booked with a wedding package</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── PRIORITY 3: SOCIAL MEDIA CONTENT ─── -->
+    <div style="margin-bottom:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.06);">
+      <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Social Media Content</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:2rem;max-width:680px;">Need content for your brand, business, or personal presence? I can create short-form video and photo content tailored for Instagram, TikTok, and YouTube — shot and edited to perform.</p>
+      <div class="pricing-grid" style="grid-template-columns:1fr 1fr;margin-bottom:2rem;">
+        <div class="pricing-card">
+          <span class="pricing-badge">Video</span>
+          <div class="pricing-name">Short-Form Video</div>
+          <div class="pricing-price"><sup>$</sup>200<sub>/reel</sub></div>
+          <p class="pricing-description">One fully edited short-form video (60–90 seconds) shot and cut for vertical or square format. Ideal for Instagram Reels, TikTok, or YouTube Shorts. Includes music, color grade, and captions if needed.</p>
+          <ul class="pricing-includes">
+            <li>1–2 hours of filming</li>
+            <li>One edited reel (60–90 sec)</li>
+            <li>Music, color grade, captions</li>
+            <li>Delivered within 1 week</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <span class="pricing-badge">Photo</span>
+          <div class="pricing-name">Content Photo Session</div>
+          <div class="pricing-price"><sup>$</sup>175<sub>/hr</sub></div>
+          <p class="pricing-description">Lifestyle and product photography for social media, websites, or marketing materials. Minimum 1 hour. Includes 40–50 edited images per hour, ready for immediate posting or campaign use.</p>
+          <ul class="pricing-includes">
+            <li>1-hour minimum</li>
+            <li>40–50 edited photos per hour</li>
+            <li>Delivered within 1 week</li>
+            <li>Commercial use included</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ADD-ONS ─── -->
+    <div style="max-width:700px;margin:0 0 0;">
+      <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">Add-ons</p>
+      <div class="addon-row">
+        <div><div class="addon-name">Photo + video bundle discount</div><div class="addon-desc">Booking both photo and video coverage for the same wedding or event</div></div>
+        <div class="addon-price">&minus;$300</div>
+      </div>
+      <div class="addon-row">
+        <div><div class="addon-name">Raw footage license</div><div class="addon-desc">Personal use license to the full unedited footage archive — copyright remains with Costanzo Film &amp; Video</div></div>
+        <div class="addon-price">+$750</div>
+      </div>
+      <div class="addon-row">
+        <div><div class="addon-name">Rush delivery</div><div class="addon-desc">Turnaround in under 2 weeks</div></div>
+        <div class="addon-price">+$300</div>
+      </div>
+      <div class="addon-row">
+        <div><div class="addon-name">Travel fee</div><div class="addon-desc">Events more than 50 miles from Nashville — quoted per project</div></div>
+        <div class="addon-price">Custom</div>
+      </div>
+    </div>
+
+    <div class="contact-bar" style="margin-top:4rem;">
+      <h3>Let&#39;s talk about your day</h3>
+      <p>Every event is different. Reach out and we&#39;ll find what works for yours.</p>
+      <a href="mailto:costanzofilmandvideo@gmail.com" class="btn-primary">Get a Quote</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SCIENCE
+══════════════════════════════════════ -->
+<section id="section-science" class="page-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Science</p>
+    <h2 class="section-title">The beauty <em>between cells</em></h2>
+    <p class="section-intro">
+      Science is not separate from art — it is another form of it. Under a fluorescence microscope, a single neuron becomes a cathedral of light. A dividing cell traces patterns no painter could invent. As a PhD researcher, I move between both worlds: rigorous inquiry at the bench, and a camera that refuses to stop noticing what is beautiful about it.
+    </p>
+  </div>
+  <div class="content-max">
+
+    <!-- ── HERO: fibroblast symmetry image ── -->
+    <div class="sci-hero-wrap">
+      <div class="sci-hero-img">
+        <img src="images/science-01-hero-empf1-fibroblast.jpg" alt="EMPF1 patient fibroblasts — fluorescence microscopy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="sci-hero-caption">
+          <span class="sci-img-tag">EMPF1 Patient Fibroblasts</span>
+          <p>Fluorescence microscopy · MAP2 (green) · β3-Tubulin (magenta) · Patient-derived DRP1 mutation model</p>
+        </div>
+      </div>
+      <div class="sci-hero-text">
+        <h3>About my research</h3>
+        <p>I am a PhD student at Vanderbilt studying the molecular machinery that governs how our cells divide and communicate — specifically <span class="term">Dynamin-Related Protein 1 (DRP1)</span>, the primary driver of mitochondrial and peroxisomal fission.</p>
+        <p>Mutations in DRP1 cause a rare neurodevelopmental disorder called <span class="term">EMPF1</span> — an epileptic encephalopathy marked by impaired neurogenesis and severe neurodevelopmental delay. My work interrogates how DRP1 activity shapes metabolic signaling and early human neurogenesis.</p>
+        <p>I work with <span class="term">human induced pluripotent stem cells (hiPSCs)</span> carrying patient-derived DRP1 mutations — generated via CRISPR/Cas9 or reprogrammed from patient fibroblasts — to derive neural progenitors and neurons as human cellular disease models.</p>
+        <div class="research-abstract">
+          <h4>Research context</h4>
+          <p>DRP1 is the primary effector of mitochondrial and peroxisomal fission. Despite its essential role, the mechanisms by which organelle fission contributes to metabolic signaling and cell fate determination during human neurogenesis remain poorly understood. This project characterizes how DRP1 activity shapes these processes using hiPSC-derived neuronal models.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RESEARCHER PORTRAIT + BIO ── -->
+    <div class="sci-bio-wrap">
+      <div class="sci-bio-portrait">
+        <img src="images/science-02-researcher-portrait.jpg" alt="James Costanzo — Vanderbilt researcher" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <div class="sci-portrait-label">James P. Costanzo<br><span>Vanderbilt School of Medicine</span></div>
+      </div>
+      <div class="sci-bio-text">
+        <h3>The Researcher</h3>
+        <p>
+          The same instinct that puts a camera in my hands is what drew me to science: a compulsion to look closely at things most people walk past. As a kid I was curious about the world at scales too small to see. Eventually I found my way to a microscope — and that curiosity became a PhD.
+        </p>
+        <p>
+          I am a <span class="term">PhD Candidate in Cell and Developmental Biology</span> at Vanderbilt University, working in Dr. Vivian Gama's lab. My research asks how a single protein — <span class="term">DRP1</span> — shapes the way human neurons develop, and what goes wrong when it doesn't work. The disease I study, EMPF1, is a rare epileptic encephalopathy caused by mutations in this protein. To model it, I generate human neurons directly from patient-derived stem cells and use CRISPR/Cas9 to engineer the mutations we want to study.
+        </p>
+        <p>
+          Before Vanderbilt I spent three years as a Research Assistant at <span class="term">Case Western Reserve University</span>, building iPSC models of ALS and epileptic encephalopathy — work that contributed to a publication in <em>EMBO Molecular Medicine</em>. I also presented at an interdepartmental motor neuron meeting at CWRU, which was my first real taste of sharing science with a room full of people who cared about the same questions.
+        </p>
+        <p>
+          What connects the lab to the lens is simple: both ask you to be patient, to look carefully, and to find the frame that makes something invisible — visible.
+        </p>
+        <div class="sci-bio-stats">
+          <div class="sci-bio-stat">
+            <span class="sci-bio-stat-num">Vanderbilt</span>
+            <span class="sci-bio-stat-label">Cell &amp; Developmental Biology</span>
+          </div>
+          <div class="sci-bio-stat">
+            <span class="sci-bio-stat-num">4.0</span>
+            <span class="sci-bio-stat-label">Graduate GPA</span>
+          </div>
+          <div class="sci-bio-stat">
+            <span class="sci-bio-stat-num">4 Papers</span>
+            <span class="sci-bio-stat-label">Published &amp; in review</span>
+          </div>
+          <div class="sci-bio-stat">
+            <span class="sci-bio-stat-num">3&times; Award</span>
+            <span class="sci-bio-stat-label">Vanderbilt Imaging Competitions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDESHOW: best microscopy images ── -->
+    <div class="sci-slideshow-wrap">
+      <p class="sci-sub-label">Microscopy Highlight Reel</p>
+      <div class="sci-slideshow">
+        <div class="sci-slide active">
+          <div class="sci-slide-img"><img src="images/science-03-slide-r403c-cortical-100x.jpg" alt="R403C DRP1 mutation — cortical neurons day 60, 100x" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+          <div class="sci-slide-caption">
+            <span class="sci-img-tag">R403C Mutation · 100x</span>
+            <p>CTX day-60 neurons · MAP2 (green) · β3-Tubulin (magenta) · CTIP2 (blue) · Deconvolved MaxIP</p>
+          </div>
+        </div>
+        <div class="sci-slide">
+          <div class="sci-slide-img"><img src="images/science-04-slide-r403c-cortical-100x-018.jpg" alt="R403C DRP1 mutation — cortical neurons day 60, 100x, series 018" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+          <div class="sci-slide-caption">
+            <span class="sci-img-tag">R403C Mutation · 100x · Series 018</span>
+            <p>CTX day-60 neurons · MAP2 · β3-Tubulin · CTIP2 · Deconvolved MaxIP</p>
+          </div>
+        </div>
+        <div class="sci-slide">
+          <div class="sci-slide-img"><img src="images/science-05-slide-control-ctx-60x.jpg" alt="Control CTX day-60, 60x" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+          <div class="sci-slide-caption">
+            <span class="sci-img-tag">Control · 60x</span>
+            <p>CTX day-60 neurons · 60x objective · MAP2 · β3-Tubulin · CTIP2 · Deconvolved MaxIP</p>
+          </div>
+        </div>
+        <div class="sci-slide">
+          <div class="sci-slide-img"><img src="images/science-06-slide-control-ctx-100x-014.jpg" alt="Control CTX day-60, 100x, series 014" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+          <div class="sci-slide-caption">
+            <span class="sci-img-tag">Control · 100x · Series 014</span>
+            <p>CTX day-60 neurons · 100x objective · MAP2 · β3-Tubulin · CTIP2 · Deconvolved MaxIP</p>
+          </div>
+        </div>
+        <div class="sci-slide">
+          <div class="sci-slide-img"><img src="images/science-07-slide-control-ctx-100x-003.jpg" alt="Control CTX day-60, 100x, series 003" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+          <div class="sci-slide-caption">
+            <span class="sci-img-tag">Control · 100x · Series 003</span>
+            <p>CTX day-60 neurons · 100x objective · MAP2 · β3-Tubulin · CTIP2 · Deconvolved MaxIP</p>
+          </div>
+        </div>
+        <button class="sci-slide-btn sci-slide-prev" onclick="sciSlide(-1)">&#8592;</button>
+        <button class="sci-slide-btn sci-slide-next" onclick="sciSlide(1)">&#8594;</button>
+        <div class="sci-slide-dots" id="sci-dots"></div>
+      </div>
+    </div>
+
+
+    <!-- ── MICROSCOPY VIDEOS ── -->
+    <div style="margin-top:4rem;">
+      <p class="sci-sub-label">Microscopy Videos</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:640px;">
+        Live-cell and time-lapse microscopy from the DRP1 neurogenesis project. Captured using Nikon Elements with ND2 acquisition pipelines.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:2.5rem;">
+
+        <div class="sci-video-feature">
+          <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;">
+            <iframe src="https://player.vimeo.com/video/1199071144?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
+              frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+              title="Calcium Imaging — DRP1 Neurogenesis, Video 1"></iframe>
+          </div>
+          <div class="sci-video-meta">
+            <span class="sci-img-tag">Calcium Imaging · Video 1</span>
+            <p>DRP1 neurogenesis project · Nikon Elements ND2 acquisition pipeline · Cal520 (488 nm) · DAPI (405 nm)</p>
+          </div>
+        </div>
+
+        <div class="sci-video-feature">
+          <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;">
+            <iframe src="https://player.vimeo.com/video/1199071143?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
+              frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+              title="Calcium Imaging — DRP1 Neurogenesis, Video 2"></iframe>
+          </div>
+          <div class="sci-video-meta">
+            <span class="sci-img-tag">Calcium Imaging · Video 2</span>
+            <p>DRP1 neurogenesis project · Nikon Elements ND2 acquisition pipeline · Cal520 (488 nm) · DAPI (405 nm)</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GALLERY: all microscopy images ── -->
+    <div style="margin-top:4rem;">
+      <p class="sci-sub-label">Full Gallery</p>
+      <div class="gallery-grid">
+        <div class="gallery-item" style="overflow:hidden;aspect-ratio:1/1;">
+          <img src="images/science-08-gallery-control-100x-003.jpg" alt="Control 100x series 003" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s;">
+        </div>
+        <div class="gallery-item" style="overflow:hidden;aspect-ratio:1/1;">
+          <img src="images/science-09-gallery-r403c-100x-007.jpg" alt="R403C 100x series 007" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s;">
+        </div>
+        <div class="gallery-item" style="overflow:hidden;aspect-ratio:1/1;">
+          <img src="images/science-10-gallery-r403c-100x-018.jpg" alt="R403C 100x series 018" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s;">
+        </div>
+        <div class="gallery-item" style="overflow:hidden;aspect-ratio:1/1;">
+          <img src="images/science-11-gallery-control-100x-014.jpg" alt="Control 100x series 014" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s;">
+        </div>
+        <div class="gallery-item" style="overflow:hidden;aspect-ratio:1/1;">
+          <img src="images/science-12-gallery-control-60x-008.jpg" alt="Control 60x series 008" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s;">
+        </div>
+        <div class="gallery-item" style="overflow:hidden;aspect-ratio:1/1;">
+          <img src="images/science-13-gallery-empf1-fibroblast.jpg" alt="EMPF1 patient fibroblast" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s;">
+        </div>
+      </div>
+    </div>
+
+    <div class="add-photo-note" style="margin-top:2rem;">
+      📎 More microscopy images and lab videos can be added here — share them and I&#39;ll embed them.
+      <br>A dedicated science portfolio site with publications is also in the works.
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════
+     NATURE
+══════════════════════════════════════ -->
+<section id="section-nature" class="page-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Nature</p>
+    <h2 class="section-title">Still. <em>Quiet. Present.</em></h2>
+    <p class="section-intro">
+      Nature was never just a subject for me — it was always a destination. The kind you go to when the world gets too loud and your thoughts need room to breathe.
+    </p>
+  </div>
+  <div class="content-max">
+
+    <!-- ── HERO: Bryce Canyon, full-width ── -->
+    <div class="nat-hero-wrap">
+      <div class="nat-hero-img">
+        <img src="images/nature-01-james-bryce-canyon.jpg" alt="James photographing at Bryce Canyon" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="nat-hero-caption">
+          <span class="sci-img-tag">Bryce Canyon, Utah</span>
+          <p>Shot on location among the hoodoos — the landscape that first taught me to wait for the light.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SPLIT: written intro ── -->
+    <div class="nature-intro-split" style="margin-top:3.5rem;">
+      <div>
+        <div class="pull-quote">"There is a kind of thinking that only happens when you&#39;re standing at the edge of something vast."</div>
+        <p style="font-size:0.92rem;line-height:1.9;color:var(--light-gray);margin-bottom:1rem;">
+          I&#39;ve always found that the act of framing a landscape — deciding what to include and what to leave out — forces a particular kind of attention. You slow down. You notice the quality of the light, the texture of the rock, the way a heron holds perfectly still above water that won&#39;t.
+        </p>
+        <p style="font-size:0.92rem;line-height:1.9;color:var(--light-gray);margin-bottom:1rem;">
+          These images are not just photographs. They are records of moments where I stopped, truly stopped, and let the world remind me what it looks like when it isn&#39;t in a hurry. I bring that same patience to every shoot — the willingness to wait for the frame that&#39;s worth it.
+        </p>
+        <p style="font-size:0.92rem;line-height:1.9;color:var(--light-gray);">
+          From the hoodoos of Bryce Canyon to the still waters of the mid-Atlantic coast, nature has been both my subject and my teacher. It asks nothing of you except that you pay attention.
+        </p>
+      </div>
+      <div class="nature-aside">
+        <p>The camera that taught me patience wasn&#39;t a camera at all — it was a landscape that refused to look good unless you waited for the light to change.</p>
+        <p>These are the places I return to. The ones that stay with you.</p>
+        <p style="color:var(--mid-gray);font-style:italic;font-family:&#39;Playfair Display&#39;,serif;">Bryce Canyon · Zion · The mid-Atlantic coast · And wherever the sky demands it.</p>
+      </div>
+    </div>
+
+    <!-- ── JAMES IN THE ENVIRONMENT: portrait strip ── -->
+    <div style="margin-top:4rem;">
+      <p class="sci-sub-label">In the Field</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:580px;">
+        Every image starts with being there. These are moments from the field — landscapes, light, and what it looks like to be the one holding the camera.
+      </p>
+      <div class="nat-field-grid">
+        <div class="nat-field-card" style="overflow:hidden;aspect-ratio:4/3;position:relative;">
+          <img src="images/nature-02-james-grand-canyon.jpg" alt="James shooting on location — Grand Canyon rim trail" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s ease;">
+        </div>
+        <div class="nat-field-card nat-field-card--placeholder">
+          <div class="gallery-placeholder" style="height:100%;border:none;">Field / on-location moment — add photo</div>
+        </div>
+        <div class="nat-field-card nat-field-card--placeholder">
+          <div class="gallery-placeholder" style="height:100%;border:none;">Another environment — add photo</div>
+        </div>
+      </div>
+      <div class="add-photo-note" style="margin-top:0.5rem;">
+        📎 Share photos of you in nature / shooting on location — I&#39;ll replace these placeholders.
+      </div>
+    </div>
+
+    <!-- ── NATURE SLIDESHOW ── -->
+    <div style="margin-top:4rem;">
+      <p class="sci-sub-label">Nature</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:640px;">Valley of Fire · Zion National Park · Bryce Canyon · Grand Canyon · Hoover Dam</p>
+      <div class="nat-slideshow">
+        
+        <div class="nat-slide active">
+          <div class="nat-slide-img"><img src="images/nature-03-slide-bryce-slot-canyon.jpg" alt="Bryce Canyon — slot canyon" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Bryce Canyon — slot canyon</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-04-slide-grand-canyon-south-rim.jpg" alt="Grand Canyon — South Rim panorama" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Grand Canyon — South Rim panorama</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-05-slide-bryce-hoodoos.jpg" alt="Bryce Canyon — hoodoos from below" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Bryce Canyon — hoodoos from below</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-06-slide-zion-stream-boulders.jpg" alt="Zion — stream through red boulders" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Zion — stream through red boulders</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-07-slide-zion-valley-floor.jpg" alt="Zion National Park — valley floor view" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Zion National Park — valley floor view</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-08-slide-valley-of-fire-heat-warning.jpg" alt="Valley of Fire — Heat Warning" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Valley of Fire — Heat Warning</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-09-slide-valley-of-fire-canyon-road.jpg" alt="Valley of Fire — canyon road" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Valley of Fire — canyon road</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-10-slide-zion-canyon-walls.jpg" alt="Zion National Park — canyon walls" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Zion National Park — canyon walls</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-11-slide-grand-canyon-dead-tree.jpg" alt="Grand Canyon — dead tree silhouette" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Grand Canyon — dead tree silhouette</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-12-slide-valley-of-fire-petroglyphs-sandstone.jpg" alt="Valley of Fire — petroglyphs on sandstone" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Valley of Fire — petroglyphs on sandstone</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-13-slide-hoover-dam.jpg" alt="Hoover Dam — Black Canyon, Nevada" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Hoover Dam — Black Canyon, Nevada</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-14-slide-valley-of-fire-petroglyphs.jpg" alt="Valley of Fire — petroglyphs" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Valley of Fire — petroglyphs</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-15-slide-desert-landscape.jpg" alt="Desert landscape" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Desert landscape</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-16-slide-zion-angels-landing.jpg" alt="Zion National Park — Angel's Landing overlook" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Zion National Park — Angel's Landing overlook</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-17-slide-zion-narrows-virgin-river.jpg" alt="Zion Narrows — wading the Virgin River" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Zion Narrows — wading the Virgin River</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-18-slide-valley-of-fire-rainbow-vista.jpg" alt="Valley of Fire — Rainbow Vista road" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Valley of Fire — Rainbow Vista road</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-19-slide-grand-canyon-desert-view-watchtower.jpg" alt="Grand Canyon — Desert View Watchtower" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Grand Canyon — Desert View Watchtower</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-20-slide-macro-cactus-spines.jpg" alt="Macro — cactus spines" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Macro — cactus spines</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-21-slide-autumn-leaf-bokeh.jpg" alt="Backlit autumn leaf — bokeh" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Backlit autumn leaf — bokeh</span>
+          </div>
+        </div>
+        <div class="nat-slide ">
+          <div class="nat-slide-img"><img src="images/nature-22-slide-zion-narrows-wading.jpg" alt="Zion Narrows — wading the Virgin River" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-caption">
+            <span class="sci-img-tag">Zion Narrows — wading the Virgin River</span>
+          </div>
+        </div>
+        <button class="nat-slide-btn nat-slide-prev" onclick="natSlide(-1)">&#8592;</button>
+        <button class="nat-slide-btn nat-slide-next" onclick="natSlide(1)">&#8594;</button>
+        <div class="nat-slide-dots" id="nat-dots"><div class="nat-dot nat-dot-active" onclick="goNatSlide(0)"></div><div class="nat-dot " onclick="goNatSlide(1)"></div><div class="nat-dot " onclick="goNatSlide(2)"></div><div class="nat-dot " onclick="goNatSlide(3)"></div><div class="nat-dot " onclick="goNatSlide(4)"></div><div class="nat-dot " onclick="goNatSlide(5)"></div><div class="nat-dot " onclick="goNatSlide(6)"></div><div class="nat-dot " onclick="goNatSlide(7)"></div><div class="nat-dot " onclick="goNatSlide(8)"></div><div class="nat-dot " onclick="goNatSlide(9)"></div><div class="nat-dot " onclick="goNatSlide(10)"></div><div class="nat-dot " onclick="goNatSlide(11)"></div><div class="nat-dot " onclick="goNatSlide(12)"></div><div class="nat-dot " onclick="goNatSlide(13)"></div><div class="nat-dot " onclick="goNatSlide(14)"></div><div class="nat-dot " onclick="goNatSlide(15)"></div><div class="nat-dot " onclick="goNatSlide(16)"></div><div class="nat-dot " onclick="goNatSlide(17)"></div><div class="nat-dot " onclick="goNatSlide(18)"></div><div class="nat-dot " onclick="goNatSlide(19)"></div></div>
+      </div>
+    </div>
+
+    <!-- ── WILDLIFE GALLERY ── -->
+    <div style="margin-top:4rem;">
+      <p class="sci-sub-label">Wildlife</p>
+      <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:640px;">Desert bighorn sheep · Great Blue Heron · Wood duck · Cormorant — patience behind the lens.</p>
+      <div class="nat-wildlife-grid" id="wildlife-grid">
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-23-wildlife-great-blue-heron.jpg" alt="Great Blue Heron — wading" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Great Blue Heron — wading</span></div>
+        </div>
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-24-wildlife-cormorant.jpg" alt="Double-crested cormorant — perched" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Double-crested cormorant — perched</span></div>
+        </div>
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-25-wildlife-bighorn-sheep-valley-of-fire.jpg" alt="Desert bighorn sheep — Valley of Fire" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Desert bighorn sheep — Valley of Fire</span></div>
+        </div>
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-26-wildlife-valley-of-fire.jpg" alt="Wildlife — Valley of Fire" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Wildlife — Valley of Fire</span></div>
+        </div>
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-27-wildlife-wood-duck.jpg" alt="Wood duck — standing in still water" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Wood duck — standing in still water</span></div>
+        </div>
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-28-wildlife-bighorn-sheep-sandstone.jpg" alt="Desert bighorn sheep on sandstone" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Desert bighorn sheep on sandstone</span></div>
+        </div>
+        <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
+          <img src="images/nature-29-wildlife-bird-in-flight.jpg" alt="Bird in flight — through spring branches" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Bird in flight — through spring branches</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="add-photo-note" style="margin-top:1rem;">
+      📎 More wildlife photos coming — share them and I&#39;ll add them here.
+    </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     ASTROPHOTOGRAPHY
+══════════════════════════════════════ -->
+<section id="section-astro" class="page-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Astrophotography</p>
+    <h2 class="section-title">Looking up <em>at everything</em></h2>
+    <p class="section-intro">
+      There is something about a clear night sky — especially far from city lights — that resets the scale of things. Problems shrink. Curiosity expands. The Milky Way arching overhead is not just beautiful; it is a reminder that the universe is not indifferent to being looked at.
+    </p>
+  </div>
+  <div class="content-max">
+    <div class="astro-hero-text">
+      <p>
+        My interest in astrophotography grew naturally from two converging obsessions: a love of being outdoors in the hours most people are asleep, and a scientific mind that kept wanting to know what those lights actually were. Long exposures, wide apertures, dark sky sites — every image is a collaboration between the camera, the earth's rotation, and whatever patience you managed to bring.
+      </p>
+      <p>
+        I photograph the Milky Way, star trails, celestial events, and the transitions between night and day that most people miss — the blue hour before dawn, the last embers of a desert sunset bleeding into star-filled dark. These are the frames that remind me why I started.
+      </p>
+    </div>
+
+    <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;text-align:center;">Gallery</p>
+    <div class="gallery-grid">
+      <div class="gallery-placeholder" style="aspect-ratio:3/4;grid-row:span 2;">Milky Way — vertical</div>
+      <div class="gallery-placeholder">Star field</div>
+      <div class="gallery-placeholder">Sunset / eclipse</div>
+      <div class="gallery-placeholder" style="aspect-ratio:16/9;grid-column:span 2;">Wide panoramic — Milky Way or horizon</div>
+      <div class="gallery-placeholder">Sunrise</div>
+    </div>
+    <div class="add-photo-note">📎 Share your astrophotography images — Milky Way, eclipses, sunsets — and I'll replace these placeholders.</div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="section-contact" class="page-section" style="min-height:70vh;display:flex;flex-direction:column;justify-content:center;">
+  <div class="content-max" style="max-width:620px;margin:0 auto;text-align:center;">
+    <p class="section-eyebrow" style="text-align:center;">Contact</p>
+    <h2 class="section-title" style="text-align:center;">Let's make <em>something together</em></h2>
+    <p style="font-size:0.92rem;line-height:1.9;color:var(--light-gray);margin-bottom:3rem;">
+      Whether you're planning a wedding, a scientific visualization project, or simply want a print of something you saw in the galleries — I'd love to hear from you. Reach out and let's talk.
+    </p>
+    <a href="mailto:costanzofilmandvideo@gmail.com" class="btn-primary" style="display:inline-block;margin-bottom:1rem;">costanzofilmandvideo@gmail.com</a>
+    <p style="font-size:0.78rem;color:var(--mid-gray);margin-top:2rem;">Based in Nashville, TN · Available for travel</p>
+    <p style="margin-top:1rem;"><a href="https://www.instagram.com/costanzo.film.and.video/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;">@costanzo.film.and.video on Instagram ↗</a></p>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Costanzo Film & Video — James Costanzo</span>
+  <span>Nashville, TN · <a href="mailto:costanzofilmandvideo@gmail.com">costanzofilmandvideo@gmail.com</a> · <a href="https://www.instagram.com/costanzo.film.and.video/" target="_blank" rel="noopener">Instagram</a></span>
+</footer>
+
+
+<script>
+  // Nav section switching
+  function showSection(name) {
+    document.getElementById('section-home').style.display = 'none';
+    ['weddings','science','nature','astro','contact'].forEach(s => {
+      document.getElementById('section-' + s).classList.remove('active');
+    });
+    if (name === 'home') {
+      document.getElementById('section-home').style.display = 'block';
+    } else {
+      document.getElementById('section-' + name).classList.add('active');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  // Nature landscape slideshow
+  let natIdx = 0;
+  const natSlides = document.querySelectorAll('.nat-slide');
+
+  function updateNatDots() {
+    document.querySelectorAll('.nat-dot').forEach((d, i) => {
+      d.className = 'nat-dot' + (i === natIdx ? ' nat-dot-active' : '');
+    });
+  }
+
+  function goNatSlide(n) {
+    natSlides[natIdx].classList.remove('active');
+    natIdx = (n + natSlides.length) % natSlides.length;
+    natSlides[natIdx].classList.add('active');
+    updateNatDots();
+  }
+
+  function natSlide(dir) { goNatSlide(natIdx + dir); }
+
+  // Auto-advance every 6s when nature section is active
+  setInterval(() => {
+    if (document.getElementById('section-nature')?.classList.contains('active')) natSlide(1);
+  }, 6000);
+
+
+  // Science slideshow
+  let sciIdx = 0;
+  const sciSlides = document.querySelectorAll('.sci-slide');
+  const sciDotsContainer = document.getElementById('sci-dots');
+
+  function buildSciDots() {
+    if (!sciDotsContainer) return;
+    sciDotsContainer.innerHTML = '';
+    sciSlides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'sci-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goSciSlide(i);
+      sciDotsContainer.appendChild(d);
+    });
+  }
+
+  function goSciSlide(n) {
+    sciSlides[sciIdx].classList.remove('active');
+    document.querySelectorAll('.sci-dot')[sciIdx]?.classList.remove('active');
+    sciIdx = (n + sciSlides.length) % sciSlides.length;
+    sciSlides[sciIdx].classList.add('active');
+    document.querySelectorAll('.sci-dot')[sciIdx]?.classList.add('active');
+  }
+
+  function sciSlide(dir) { goSciSlide(sciIdx + dir); }
+
+  buildSciDots();
+
+  // Auto-advance slideshow every 5s
+  setInterval(() => { if (document.getElementById('section-science')?.classList.contains('active')) sciSlide(1); }, 5000);
+
+
+  // Scrolled nav style
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+
+</body>
+</html>
