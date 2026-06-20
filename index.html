@@ -911,6 +911,7 @@
     .page-section { padding: 6rem 1.5rem 3rem; }
     .science-split, .nature-intro-split { grid-template-columns: 1fr; }
     .pricing-grid { gap: 1px; }
+    .engagement-portrait-row { flex-direction: column; }
   }
 </style>
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -995,15 +996,15 @@
     <div style="margin-bottom:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.06);">
       <p class="sci-sub-label">Engagement &amp; Portrait Photography</p>
       <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:640px;">A few frames from recent sessions — quiet moments, real laughter, and locations that mean something.</p>
-      <div style="display:grid;grid-template-rows:auto auto;gap:4px;">
-        <div style="overflow:hidden;aspect-ratio:16/9;position:relative;background:var(--charcoal);">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="overflow:hidden;aspect-ratio:16/9;width:100%;position:relative;background:var(--charcoal);">
           <img src="images/weddings-01-couple-dip-kiss.jpg" alt="Couple dip kiss — Vanderbilt campus" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
-          <div style="overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--charcoal);">
+        <div class="engagement-portrait-row" style="display:flex;gap:4px;">
+          <div style="overflow:hidden;aspect-ratio:3/4;flex:1;position:relative;background:var(--charcoal);">
             <img src="images/weddings-02-couple-portrait-bw.jpg" alt="Couple portrait — black and white columns" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
           </div>
-          <div style="overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--charcoal);">
+          <div style="overflow:hidden;aspect-ratio:3/4;flex:1;position:relative;background:var(--charcoal);">
             <img src="images/weddings-03-couple-lift-kiss.jpg" alt="Couple lift kiss — columns corridor" style="width:100%;height:100%;object-fit:cover;object-position:center;">
           </div>
         </div>
@@ -1029,21 +1030,53 @@
       <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;">Wedding Videography</p>
       <p style="font-size:0.85rem;color:var(--mid-gray);margin-bottom:2rem;max-width:680px;">Weddings are my primary focus as a filmmaker. You'll receive films you'll want to watch again and again — not just on anniversaries, but on ordinary evenings when you want to feel it all over again.</p>
 
-      <!-- Day Coverage -->
-      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Day Coverage</p>
-      <div class="pricing-grid" style="grid-template-columns:1fr 1fr;margin-bottom:2rem;">
-        <div class="pricing-card">
-          <span class="pricing-badge">Base rate</span>
-          <div class="pricing-name">Wedding Day Coverage</div>
-          <div class="pricing-price"><sup>$</sup>1,000</div>
-          <p class="pricing-description">Full wedding day coverage, up to 10 hours, single videographer. The foundation for all video packages — your complete event captured with cinematic care.</p>
+      <!-- Video Packages -->
+      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Wedding Video Packages</p>
+      <p style="font-size:0.82rem;color:var(--mid-gray);margin-bottom:1.5rem;max-width:680px;">Each package includes up to 10 hours of full wedding day coverage with a single videographer, professional audio capture, and color graded footage.</p>
+      <div class="pricing-grid" style="margin-bottom:2rem;">
+        <div class="pricing-card featured">
+          <span class="pricing-badge">&#9733; Most popular</span>
+          <div class="pricing-name">Highlight</div>
+          <div class="pricing-price"><sup>$</sup>2,000</div>
+          <p class="pricing-description">Full wedding day coverage plus a 3–7 minute cinematic highlight reel set to music, and a dedicated vows video — the most emotionally resonant deliverables and the ones you'll share most.</p>
           <ul class="pricing-includes">
-            <li>Up to 10 hours of coverage</li>
-            <li>Professional audio capture</li>
-            <li>Color graded footage</li>
-            <li>Add any deliverable package below</li>
+            <li>Up to 10 hours of day coverage</li>
+            <li>3–7 min cinematic highlight reel</li>
+            <li>Ceremony vows video</li>
+            <li>Private digital delivery</li>
           </ul>
         </div>
+        <div class="pricing-card">
+          <span class="pricing-badge">&#9733; Best value</span>
+          <div class="pricing-name">Full Story</div>
+          <div class="pricing-price"><sup>$</sup>2,750</div>
+          <p class="pricing-description">Full wedding day coverage plus a highlight reel and vows video, and a full-length feature film of your wedding (30 minutes – 1 hour) — ceremony, speeches, reception, and every real moment in between.</p>
+          <ul class="pricing-includes">
+            <li>Up to 10 hours of day coverage</li>
+            <li>3–7 min highlight reel</li>
+            <li>Vows video</li>
+            <li>Full-length wedding film (30 min – 1 hr)</li>
+            <li>Private digital delivery</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <span class="pricing-badge">Full Story +</span>
+          <div class="pricing-name">Full Story &amp; Blooper Reel</div>
+          <div class="pricing-price"><sup>$</sup>3,000</div>
+          <p class="pricing-description">Everything in Full Story, plus a ~15-minute blooper reel capturing the laughter, candid chaos, and outtakes that make your wedding uniquely yours.</p>
+          <ul class="pricing-includes">
+            <li>Up to 10 hours of day coverage</li>
+            <li>3–7 min highlight reel</li>
+            <li>Vows video</li>
+            <li>Full-length wedding film (30 min – 1 hr)</li>
+            <li>~15-min blooper / outtakes reel</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Additional Days -->
+      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Additional Coverage</p>
+      <div class="pricing-grid" style="grid-template-columns:1fr;max-width:420px;margin-bottom:2rem;">
         <div class="pricing-card">
           <span class="pricing-badge">Multi-day add-on</span>
           <div class="pricing-name">Additional Days</div>
@@ -1055,49 +1088,6 @@
             <li>Destination multi-day events</li>
             <li>2-hour minimum</li>
           </ul>
-        </div>
-      </div>
-
-      <!-- Video Deliverable Packages -->
-      <p style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--light-gray);margin-bottom:1rem;">Video Deliverable Packages — added to day coverage</p>
-      <div class="pricing-grid" style="margin-bottom:2rem;">
-        <div class="pricing-card featured">
-          <span class="pricing-badge">&#9733; Most popular</span>
-          <div class="pricing-name">Highlight</div>
-          <div class="pricing-price"><sup>+$</sup>500</div>
-          <p class="pricing-description">A 3–7 minute cinematic highlight reel set to music, plus a dedicated vows video — the most emotionally resonant deliverables and the ones you'll share most.</p>
-          <ul class="pricing-includes">
-            <li>3–7 min cinematic highlight reel</li>
-            <li>Ceremony vows video</li>
-            <li>Private digital delivery</li>
-          </ul>
-          <p style="font-size:0.85rem;color:var(--mid-gray);margin-top:1.5rem;">Total with day: <span style="color:var(--accent);">$1,500</span></p>
-        </div>
-        <div class="pricing-card">
-          <span class="pricing-badge">&#9733; Best value</span>
-          <div class="pricing-name">Full Story</div>
-          <div class="pricing-price"><sup>+$</sup>1,750</div>
-          <p class="pricing-description">Highlight reel and vows video plus a full-length feature film of your wedding (30 minutes – 1 hour) — ceremony, speeches, reception, and every real moment in between.</p>
-          <ul class="pricing-includes">
-            <li>3–7 min highlight reel</li>
-            <li>Vows video</li>
-            <li>Full-length wedding film (30 min – 1 hr)</li>
-            <li>Private digital delivery</li>
-          </ul>
-          <p style="font-size:0.85rem;color:var(--mid-gray);margin-top:1.5rem;">Total with day: <span style="color:var(--accent);">$2,750</span></p>
-        </div>
-        <div class="pricing-card">
-          <span class="pricing-badge">Full Story +</span>
-          <div class="pricing-name">Full Story &amp; Blooper Reel</div>
-          <div class="pricing-price"><sup>+$</sup>2,000</div>
-          <p class="pricing-description">Everything in Full Story, plus a ~15-minute blooper reel capturing the laughter, candid chaos, and outtakes that make your wedding uniquely yours.</p>
-          <ul class="pricing-includes">
-            <li>3–7 min highlight reel</li>
-            <li>Vows video</li>
-            <li>Full-length wedding film (30 min – 1 hr)</li>
-            <li>~15-min blooper / outtakes reel</li>
-          </ul>
-          <p style="font-size:0.85rem;color:var(--mid-gray);margin-top:1.5rem;">Total with day: <span style="color:var(--accent);">$3,000</span></p>
         </div>
       </div>
     </div>
@@ -1612,12 +1602,6 @@
           </div>
         </div>
         <div class="nat-slide ">
-          <div class="nat-slide-img"><img src="images/nature-10-slide-zion-canyon-walls.jpg" alt="Zion National Park — canyon walls" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="nat-slide-caption">
-            <span class="sci-img-tag">Zion National Park — canyon walls</span>
-          </div>
-        </div>
-        <div class="nat-slide ">
           <div class="nat-slide-img"><img src="images/nature-11-slide-grand-canyon-dead-tree.jpg" alt="Grand Canyon — dead tree silhouette" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="nat-slide-caption">
             <span class="sci-img-tag">Grand Canyon — dead tree silhouette</span>
@@ -1642,21 +1626,15 @@
           </div>
         </div>
         <div class="nat-slide ">
-          <div class="nat-slide-img"><img src="images/nature-15-slide-desert-landscape.jpg" alt="Desert landscape" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="nat-slide-img"><img src="images/nature-15-slide-desert-landscape.jpg" alt="Cleveland skyline at sunset" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="nat-slide-caption">
-            <span class="sci-img-tag">Desert landscape</span>
+            <span class="sci-img-tag">Cleveland skyline at sunset</span>
           </div>
         </div>
         <div class="nat-slide ">
           <div class="nat-slide-img"><img src="images/nature-16-slide-zion-angels-landing.jpg" alt="Zion National Park — Angel's Landing overlook" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="nat-slide-caption">
             <span class="sci-img-tag">Zion National Park — Angel's Landing overlook</span>
-          </div>
-        </div>
-        <div class="nat-slide ">
-          <div class="nat-slide-img"><img src="images/nature-17-slide-zion-narrows-virgin-river.jpg" alt="Zion Narrows — wading the Virgin River" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="nat-slide-caption">
-            <span class="sci-img-tag">Zion Narrows — wading the Virgin River</span>
           </div>
         </div>
         <div class="nat-slide ">
@@ -1703,7 +1681,7 @@
         </div>
         <button class="nat-slide-btn nat-slide-prev" onclick="natSlide(-1)">&#8592;</button>
         <button class="nat-slide-btn nat-slide-next" onclick="natSlide(1)">&#8594;</button>
-        <div class="nat-slide-dots" id="nat-dots"><div class="nat-dot nat-dot-active" onclick="goNatSlide(0)"></div><div class="nat-dot " onclick="goNatSlide(1)"></div><div class="nat-dot " onclick="goNatSlide(2)"></div><div class="nat-dot " onclick="goNatSlide(3)"></div><div class="nat-dot " onclick="goNatSlide(4)"></div><div class="nat-dot " onclick="goNatSlide(5)"></div><div class="nat-dot " onclick="goNatSlide(6)"></div><div class="nat-dot " onclick="goNatSlide(7)"></div><div class="nat-dot " onclick="goNatSlide(8)"></div><div class="nat-dot " onclick="goNatSlide(9)"></div><div class="nat-dot " onclick="goNatSlide(10)"></div><div class="nat-dot " onclick="goNatSlide(11)"></div><div class="nat-dot " onclick="goNatSlide(12)"></div><div class="nat-dot " onclick="goNatSlide(13)"></div><div class="nat-dot " onclick="goNatSlide(14)"></div><div class="nat-dot " onclick="goNatSlide(15)"></div><div class="nat-dot " onclick="goNatSlide(16)"></div><div class="nat-dot " onclick="goNatSlide(17)"></div><div class="nat-dot " onclick="goNatSlide(18)"></div><div class="nat-dot " onclick="goNatSlide(19)"></div><div class="nat-dot " onclick="goNatSlide(20)"></div><div class="nat-dot " onclick="goNatSlide(21)"></div></div>
+        <div class="nat-slide-dots" id="nat-dots"><div class="nat-dot nat-dot-active" onclick="goNatSlide(0)"></div><div class="nat-dot " onclick="goNatSlide(1)"></div><div class="nat-dot " onclick="goNatSlide(2)"></div><div class="nat-dot " onclick="goNatSlide(3)"></div><div class="nat-dot " onclick="goNatSlide(4)"></div><div class="nat-dot " onclick="goNatSlide(5)"></div><div class="nat-dot " onclick="goNatSlide(6)"></div><div class="nat-dot " onclick="goNatSlide(7)"></div><div class="nat-dot " onclick="goNatSlide(8)"></div><div class="nat-dot " onclick="goNatSlide(9)"></div><div class="nat-dot " onclick="goNatSlide(10)"></div><div class="nat-dot " onclick="goNatSlide(11)"></div><div class="nat-dot " onclick="goNatSlide(12)"></div><div class="nat-dot " onclick="goNatSlide(13)"></div><div class="nat-dot " onclick="goNatSlide(14)"></div><div class="nat-dot " onclick="goNatSlide(15)"></div><div class="nat-dot " onclick="goNatSlide(16)"></div><div class="nat-dot " onclick="goNatSlide(17)"></div><div class="nat-dot " onclick="goNatSlide(18)"></div></div>
       </div>
     </div>
 
@@ -1725,8 +1703,8 @@
           <div class="nat-gallery-caption"><span>Desert bighorn sheep — Valley of Fire</span></div>
         </div>
         <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
-          <img src="images/nature-26-wildlife-valley-of-fire.jpg" alt="Wildlife — Valley of Fire" style="width:100%;height:100%;object-fit:cover;">
-          <div class="nat-gallery-caption"><span>Wildlife — Valley of Fire</span></div>
+          <img src="images/nature-26-wildlife-valley-of-fire.jpg" alt="Gray treefrog in the grass" style="width:100%;height:100%;object-fit:cover;">
+          <div class="nat-gallery-caption"><span>Gray treefrog — tucked in the grass</span></div>
         </div>
         <div class="nat-gallery-item" style="overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--charcoal);">
           <img src="images/nature-27-wildlife-wood-duck.jpg" alt="Wood duck — standing in still water" style="width:100%;height:100%;object-fit:cover;">
@@ -1961,6 +1939,18 @@
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
   });
+
+  // Randomize wildlife gallery order on each page load
+  (function shuffleWildlifeGrid() {
+    const grid = document.getElementById('wildlife-grid');
+    if (!grid) return;
+    const items = Array.from(grid.children);
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    items.forEach(item => grid.appendChild(item));
+  })();
 </script>
 
 </body>
